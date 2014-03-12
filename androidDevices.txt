@@ -1,0 +1,3 @@
+If adb devices is not showing your device , try fastboot devices.
+You may also want to manually reboot to bootloader if there are issues.
+fastboot oem unlock is too easy, don't be afraid to try it.

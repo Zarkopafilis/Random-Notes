@@ -1,3 +1,10 @@
 If adb devices is not showing your device , try fastboot devices.
 You may also want to manually reboot to bootloader if there are issues.
 fastboot oem unlock is too easy, don't be afraid to try it.
+
+FUCK YOU PEOPLE THAT MESS AROUND WITH ANDROID'S IMAGES AND YOUR OEM STUFF! THIS IS REDICULOUS! WHY NOT INCLUDE PLAY STORE,
+NOT ALLOW PEOPLE TO RUN LATEST ANDROID AND NOT FUCKING EVEN INCLUDE A GOD DAMN MANUALLY - ACCESIBLE RECOVERY/BOOTLOADER 
+MODE??????
+
+Just rooted my Nexus 7 and put cyanogenmod. It is amazing.
+Just rooted my Optimus L3 and it sucks. Not fucking easy to unlock the bootloader!

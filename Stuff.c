@@ -8,3 +8,16 @@ type(pointer) to refer to the memory address of the pointed type.
 
 scanf("%type", *type);
 printf("%type..." , type...);
+
+Reading a file:
+
+  FILE *file;//our file
+	file = fopen("/home/zarkpafilis/test.txt", "r");//directory - mode (r = read) -- returns a FILE
+	int cap = 200;//how big shall the buffer be?
+	char buff[cap];//create the string with the preferred size
+
+	while(fgets(buff,cap,file) != NULL){//while the string you read till a character in order to avoid crash , in the specified file is not null,
+			 printf ("%s\n", buff);//print the string
+	}
+
+	fclose(file);//housekeeping , close the file!

@@ -11,7 +11,7 @@ printf("%type..." , type...);
 
 Reading a file:
 
-  FILE *file;//our file
+  	FILE *file;//our file
 	file = fopen("/home/zarkpafilis/test.txt", "r");//directory - mode (r = read) -- returns a FILE
 	int cap = 200;//how big shall the buffer be?
 	char buff[cap];//create the string with the preferred size
@@ -21,3 +21,35 @@ Reading a file:
 	}
 
 	fclose(file);//housekeeping , close the file!
+
+I dont get why you should use a function pointer. It seems useless to me. Anyway , here is how I get it.
+
+int shit();//declaration
+
+int shit(){//just return a random number
+	return 14;
+}
+
+	int (*pointer) ();//this is how you declare it - type (*name) (parameters)
+	pointer = &shit;//you can do that up here too ^. Just assign the fuctions memory address the same way you 
+			//would do with a simple pointer
+
+	printf("%d", pointer());//pointer(params) is the way you call the function with a pointer!
+
+Structures. One of my favorites in C. They are like an organized bag of data. They can even hold more structures 
+inside them!
+
+//how to: lets "define" one structure
+struct name {
+
+var x,y,z;//data - or other structures!
+struct other a;//the 'other' cant be the same structure (in this case: 'name')
+};
+
+//lets make one we can use in our program
+struct name var_name;
+//lets assign some values!
+var_name.x = somevalue;
+//lets get some values!
+var x = var_name.something;
+

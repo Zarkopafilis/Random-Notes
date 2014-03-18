@@ -54,7 +54,7 @@ var_name.x = somevalue;
 var x = var_name.something;
 
 ---
-Something about how the kernel helps the programs:
+Something about how the kernel serves us:
 Acts as a "bridge" between hardware and software
 Treats I/O devices as files
 Treats disk storage and main memory(a.k.a. RAM) as Virtual Memory

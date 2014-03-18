@@ -54,7 +54,7 @@ var_name.x = somevalue;
 var x = var_name.something;
 
 ---
-
-I/O Devices are treated as Files
-Disk storage and Memory are treated as Virtual Memory
-Proccesses contain both 2 above
+Something about how the kernel helps the programs:
+Acts as a "bridge" between hardware and software
+Treats I/O devices as files
+Treats disk storage and main memory(a.k.a. RAM) as Virtual Memory

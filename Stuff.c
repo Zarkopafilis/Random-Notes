@@ -53,3 +53,8 @@ var_name.x = somevalue;
 //lets get some values!
 var x = var_name.something;
 
+---
+
+I/O Devices are treated as Files
+Disk storage and Memory are treated as Virtual Memory
+Proccesses contain both 2 above

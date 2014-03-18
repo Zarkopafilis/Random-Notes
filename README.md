@@ -9,6 +9,9 @@ Things not to do if you are an IT guy:
 - Smoking
 - Getting drunk
 - Spend way too much time debugging
+- Study/Learn too many stuff a day. You will forget most of them, don't do it!
+- Try to learn something quickly. Dude... it takes time!
+- Have low self-confidence
 
 Super amazing source for video tutorials:
 http://www.thenewboston.org --> Is good till some point. Then you are on your own and stuff get harder

@@ -1,0 +1,23 @@
+This one is for raspberry pi. I am getting one soon and want to tell you some stuff:
+
+- Don't think you will get the berry and then you are done. You need a case (min.5$), a keyboard (min.10$),
+  a mouse (min.10$), HDMI/RCA/3.5mm Audio Jack cables (I bet you can get an RCA/3.5mm Audio Jack one for free if 
+  you go to the right place...),a powersupply, either if it is a portable battery or a pluggable-to-wall 
+  device(min.15$). A must-have is the SD card(depends what you want! - I reccomend a 16GB Class 10 one) 
+  Optional stuff regarding the GP I/O pins: Some jumper wires 
+  (Male to Male , Male to Female , Female to Female), a Mosfet-H 
+  bridge expand chip(min.10$), a wireless -> USB device(can be preeety small min.(7$)), 
+  Heatsinks(You don't actually need them , but it's good to have some min.3$),
+  External storage(Cheaper than the SD card, can be very smaller. I have a 16GB Cruizer Fit),
+  Breadboard(Circuit stuff).
+  
+- You can do hell too many things with such a thing! Use it as your home server , as a media player , as a very tiny
+  and portable computer, and even use it's pins to transmit to FM frequencies , make it an RC device, make it a
+  router and much much more(look @ forums!)
+  
+- Don't be afraid of the whole programming python + other stuff concept. Code is readable and the APIs are really
+  easy and fun to mess with! I'm sure you will get the hang of it quickly...
+  
+- The community is fucking big. no jokes...
+
+- It doesn't seem that a model C is going to be released soon.

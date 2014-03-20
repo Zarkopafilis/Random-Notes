@@ -12,6 +12,8 @@ Things not to do if you are an IT guy:
 - Study/Learn too many stuff a day. You will forget most of them, don't do it!
 - Try to learn something quickly. Dude... it takes time!
 - Have low self-confidence
+- Never waste a day without revising something you have forgot or learn something new!
+- Don't be afraid to try out new stuff, it may seem hard at first , but you will get the hang of it, soon!
 
 Super amazing source for video tutorials:
 http://www.thenewboston.org --> Is good till some point. Then you are on your own and stuff get harder

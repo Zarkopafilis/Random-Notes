@@ -23,3 +23,6 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - It doesn't seem that a model C is going to be released soon.
 
 - Sandisk SD cards are the most supported cards and they also offer a great variety to use. And it's quality is good too! 
+
+- If you are going to use a USB Hub , be sure it is 2.0 (not 3.0 or 3.5, to avoid compatibility issues) and it is
+  getting power from an not-raspberry source.

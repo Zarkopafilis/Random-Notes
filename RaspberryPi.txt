@@ -26,3 +26,6 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 
 - If you are going to use a USB Hub , be sure it is 2.0 (not 3.0 or 3.5, to avoid compatibility issues) and it is
   getting power from an not-raspberry source.
+
+- Wondering how to shut your device down without causing damage? Open up a terminal , type in 'sudo halt -h'. And when it
+  does it's thing , disconnect the power supply!

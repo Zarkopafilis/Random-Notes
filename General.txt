@@ -1,0 +1,4 @@
+Unsigned numbers = Positive Integers
+Signed numbers = Positive/Negative Integers 
+0x00 (NULL, or 0) is always signed.
+

@@ -1,0 +1,4 @@
+The way I understood what *.cfg files are was :
+A usable represantation of an emulator's / some program's disk storage. Kind of like how you are able to run VM's 
+without partitioning the disk , but keeping files and stuff in one folder (with one or more files - which are not
+the stored ones) which is used as the disk storage

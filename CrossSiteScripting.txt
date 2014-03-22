@@ -1,0 +1,6 @@
+So, I actually read a book called
+"Metasploit , the penetration tester's guide"
+and I started looking into more stuff. I came across a term called 'Cross Site Scripting' (a.k.a. XSS)
+I was like: "What the fuck is XSS?"
+I understood that it is a way of exploiting sites. You just do it with scripts. The way which the exploitation is
+done similarly the way you would try to exploit compiled programs. - It's just on the web!

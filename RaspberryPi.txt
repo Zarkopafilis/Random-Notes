@@ -43,7 +43,7 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
   thermal pads (the adhesive ones) with a heatsink (or even with a small fan powered by some of the GPIO pins if 
   you are not going to use them)
   2)Do not use a case every time (if you can do so)
-  3)You need to cool 3 stuff: Voltage Regulator , SOC (CPU) , USB/Ethernet Controller
+  3)You need to cool 3 stuff: Voltage Regulator , SoC , USB/Ethernet Controller
   
   
   

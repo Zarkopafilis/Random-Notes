@@ -27,5 +27,23 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - If you are going to use a USB Hub , be sure it is 2.0 (not 3.0 or 3.5, to avoid compatibility issues) and it is
   getting power from an not-raspberry source.
 
-- Wondering how to shut your device down without causing damage? Open up a terminal , type in 'sudo halt -h'. And when it
-  does it's thing , disconnect the power supply!
+- Wondering how to shut your device down without causing damage? Open up a terminal , type in 'sudo halt -h'. And 
+  when itdoes it's thing , disconnect the power supply!
+
+- After some research , omxplayer is the most suitable player for raspberry pi with raspbian wheezy installed
+  (guys , please , do not try to portor install other software that are not specifically designed for such hardware...)
+  
+- Want to make your pi a retro gaming device? You should really install mame4all at first , but beware, you will have to
+  troubleshoot a lot till you can run a game successfully(due to : missing files , incompatible versions , it's linux,
+  etc...)
+  
+- Want to keep your temperatures low?At first you need to understand that the ARM processor is similar to the one
+  placed into your smartphone and require no cooling *but* it's nice to keep temperatures low, so : 
+  1)DO NOT place thermal compound (paste) on the CPU/RAM modules (they are made out of silicon...it's risky!).Use
+  thermal pads (the adhesive ones) with a heatsink (or even with a small fan powered by some of the GPIO pins if 
+  you are not going to use them)
+  2)Do not use a case every time (if you can do so)
+  3)You need to cool 3 stuff: Voltage Regulator , SOC (CPU) , USB/Ethernet Controller
+  
+  
+  

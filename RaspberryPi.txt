@@ -27,8 +27,8 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - If you are going to use a USB Hub , be sure it is 2.0 (not 3.0 or 3.5, to avoid compatibility issues) and it is
   getting power from an not-raspberry source.
 
-- Wondering how to shut your device down without causing damage? Open up a terminal , type in 'sudo halt -h'. And 
-  when itdoes it's thing , disconnect the power supply!
+- Wondering how to shut your device down without causing damage? Open up a terminal , type in 'sudo shutdown -h now'
+  and when leds stop blinking , remove the micro USB cable
 
 - After some research , omxplayer is the most suitable player for raspberry pi with raspbian wheezy installed
   (guys , please , do not try to portor install other software that are not specifically designed for such hardware...)
@@ -55,6 +55,6 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - The non-programmable 3.3 / 5 Volts pins provide electricity straight from the power supply and the other pins 
   provide electricity from the CPU (So be careful!)
   
-- The GPIO python library seems the most easy to use and comes preinstalled in raspbian wheezy  
+- The RPi.GPIO python library seems the most easy to use and comes preinstalled in raspbian wheezy  
   
-  
+- The device has no BIOS!

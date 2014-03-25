@@ -1,3 +1,5 @@
+#Notes regarding raspberry pi's GPIO pins
+
 #I sometimes forget some stuff
 
 #import

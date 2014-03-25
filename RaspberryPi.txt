@@ -45,5 +45,16 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
   2)Do not use a case every time (if you can do so)
   3)You need to cool 3 stuff: Voltage Regulator , SoC , USB/Ethernet Controller
   
+- For me , the best case is the transparent one , you can see what is going on inside. You need a case anyway , its 
+  like having your pc on your desk without a case...
+  
+- There are now no DNC (Do Not Connect) pins , they serve as more Ground / 3.3 Volt pins
+
+- Max programmable GPIO pin voltage: 3.3 Volts
+
+- The non-programmable 3.3 / 5 Volts pins provide electricity straight from the power supply and the other pins 
+  provide electricity from the CPU (So be careful!)
+  
+- The GPIO python library seems the most easy to use and comes preinstalled in raspbian wheezy  
   
   

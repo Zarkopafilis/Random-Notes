@@ -1,4 +1,13 @@
 Unsigned numbers = Positive Integers
 Signed numbers = Positive/Negative Integers 
 0x00 (NULL, or 0) is always signed.
+---
+16-bit ~ word
+32-bit ~ double word
+64-bit ~ quad word
 
+char -> 1 byte (Byte) 
+short -> 2 bytes (Word)
+
+Double Word -> 4 bytes (int , long int , char *) 
+---

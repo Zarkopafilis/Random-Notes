@@ -11,3 +11,5 @@ short -> 2 bytes (Word)
 
 Double Word -> 4 bytes (int , long int , char *) 
 ---
+Be careful with backlit keyboards and linux. The keyboard LEDs may not work!
+---

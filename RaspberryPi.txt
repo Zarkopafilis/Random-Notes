@@ -37,7 +37,7 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
   troubleshoot a lot till you can run a game successfully(due to : missing files , incompatible versions , it's linux,
   etc...)
   
-- Want to keep your temperatures low?At first you need to understand that the ARM processor is similar to the one
+- Want to keep your temperatures low? At first you need to understand that the ARM processor is similar to the one
   placed into your smartphone and require no cooling *but* it's nice to keep temperatures low, so : 
   1)DO NOT place thermal compound (paste) on the CPU/RAM modules (they are made out of silicon...it's risky!).Use
   thermal pads (the adhesive ones) with a heatsink (or even with a small fan powered by some of the GPIO pins if 
@@ -58,3 +58,9 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - The RPi.GPIO python library seems the most easy to use and comes preinstalled in raspbian wheezy  
   
 - The device has no BIOS!
+
+- Overclocking with raspi-config does not void warranty. I did it actually...
+
+- If you have no audio try turning volume to max and forcing audio output with amixer
+
+- Omxplayer lags a little at the start of the video even with 'gpu_ram=128' line @ /boot/config.txt

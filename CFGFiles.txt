@@ -1,4 +1,6 @@
 The way I understood what *.cfg files are was :
 A usable represantation of an emulator's / some program's disk storage. Kind of like how you are able to run VM's 
 without partitioning the disk , but keeping files and stuff in one folder (with one or more files - which are not
-the stored ones) which is used as the disk storage
+the stored ones) which is used as the disk storage.
+
+So , if your game has missing files , be sure to download the correct version of parent roms and cfg files!

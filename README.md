@@ -22,4 +22,4 @@ http://www.thenewboston.org --> Is good till some point. Then you are on your ow
 http://thecodinguniverse.com/ --> You may understand many things. I dislike some stuff
 Search at youtube : thebennybox <-- amazing stuff here
 
-Not using power-of-two values sometimes can produce weird effects!
+Not using power-of-two values sometimes can produce weird results!

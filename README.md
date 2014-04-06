@@ -15,8 +15,11 @@ Things not to do if you are an IT guy:
 - Never waste a day without revising something you have forgot or learn something new!
 - Don't be afraid to try out new stuff, it may seem hard at first , but you will get the hang of it, soon!
 
-Control + Space in eclipse after dots is veeeeery useful!
+Control + Space in eclipse is veeeeery useful!
 
 Super amazing video tutorials:
 http://www.thenewboston.org --> Is good till some point. Then you are on your own and stuff get harder
 http://thecodinguniverse.com/ --> You may understand many things. I dislike some stuff
+Search at youtube : thebennybox <-- amazing stuff here
+
+Not using power-of-two values sometimes can produce weird effects!

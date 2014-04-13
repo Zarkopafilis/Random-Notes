@@ -11,5 +11,12 @@ short -> 2 bytes (Word)
 
 Double Word -> 4 bytes (int , long int , char *) 
 ---
+Volatile = Lost when power goes off
+---
 Be careful with backlit keyboards and linux. The keyboard LEDs may not work!
 ---
+DRAM is the RAM
+SRAM is the Cache 
+^ Usually ^ (SRAM > DRAM , and has also got a bigger cost. Also doesn't need continuous refresh in order not to lose data)
+NAND Flash storage = SSDs (Non volatile , > HDDs)
+Mechanical storage = HDDs

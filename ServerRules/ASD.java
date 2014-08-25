@@ -13,7 +13,7 @@ public class ASD {
 
 public static void load() throws Exception{
 		
-		File datafolder = new File("plugins" + File.separator + "GodEmpireRules");
+		File datafolder = new File("plugins" + File.separator + "ServerRules");
 	
 		if(!datafolder.exists()){
 			Bukkit.getLogger().log(Level.SEVERE, "Plugin data folder not found , creating one for you!");

@@ -1,0 +1,9 @@
+name: ServerRules
+version: 1
+description: ServerRules
+authors: [Zarkopafilis] 
+main: Main
+commands:
+  rules:
+      description: Shows server rules
+      usage: /rules

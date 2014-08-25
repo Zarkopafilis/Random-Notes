@@ -1,6 +1,5 @@
 ::  IMPORTANT: BEFORE RUNNING THIS BATCH FILE , MAKE SURE THAT YOU HAVE ADDED THE CORRECT DIRECTORIES AT YOUR PATH VARIABLE! IF THESE COMMANDS ARE NOT RECONGIZED YOU MIGHT WANT TO DO SOME GOOGLING. 
 :: (keystore,jarsigner)
-::  Hack-Forums post :  http://www.hackforums.net/showthread.php?tid=3991520
 
 ::  Author: Zarkopafilis 
 
@@ -31,4 +30,3 @@ jarsigner -keystore %keystore% %jar%.jar %alias%
 PAUSE 
 ::  Close the command prompt
 exit 
-:: With minimal changes , it can be converted to a shell-script file

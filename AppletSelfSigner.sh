@@ -23,8 +23,6 @@ echo -n "Jarfile (Without '.jar')  > "
 read jar
 #  Sign all the class files in the jar with the given keystore
 jarsigner -keystore $keystore $jar.jar $alias 
-#  Wait for a key to be pressed 
-PAUSE 
-#  Close the command prompt
+#  Close the command prompt after 5 seconds
 read -t5 -n1 -r -p "Closing int 5 seconds..." key
 exit

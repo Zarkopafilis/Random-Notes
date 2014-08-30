@@ -62,8 +62,7 @@ public class SkillCastClass implements CommandExecutor , Listener{
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onSnowballHit(EntityDamageByEntityEvent e){
-		e.setDamage(0);
-		e.setCancelled(true);
+		
 		if(snowballDamage <= 0){
 			return;
 		}
@@ -79,6 +78,9 @@ public class SkillCastClass implements CommandExecutor , Listener{
 					LivingEntity victim = (LivingEntity) e.getEntity();
 					
 					victim.damage(snowballDamage , s.getShooter());
+					
+					e.setDamage(0);
+					e.setCancelled(true);
 					
 				}
 			}

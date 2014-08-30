@@ -1,0 +1,10 @@
+name: RPGSkills
+version: 1
+description: RPGSkills
+authors: [Zarkopafilis] 
+ 
+main: com.rfslabs.kas.rpg.skills.Main
+
+commands:
+  castskill:
+      description: Cast a skill

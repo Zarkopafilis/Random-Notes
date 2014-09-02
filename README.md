@@ -23,3 +23,5 @@ http://thecodinguniverse.com/ --> You may understand many things. I dislike some
 Search at youtube : thebennybox <-- amazing stuff here
 
 Not using power-of-two values sometimes can produce weird results!
+
+Should do .mkdirs() and private constructors for domain classes more often...from now!

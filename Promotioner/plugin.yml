@@ -2,5 +2,5 @@ name: GodempirePromote
 version: 1
 description: GodEmpirePromote
 authors: [Zarkopafilis] 
-main: com.rfslabs.kas.promote.Main
+main: Main
 depend: [Vault , mcMMO]

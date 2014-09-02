@@ -3,7 +3,7 @@ version: 1
 description: RPGSkills
 authors: [Zarkopafilis] 
  
-main: com.rfslabs.kas.rpg.skills.Main
+main: Main
 
 commands:
   castskill:

@@ -2,7 +2,7 @@
 final int PIX_SIZE = 10;
 String fileName = "image"
 // Read the JPG
-img = ImageIO.read(new File(fileName + ".jpg"));
+BufferedImage img = ImageIO.read(new File(fileName + ".jpg"));
 
 // Get the raster data (array of pixels)
 Raster src = img.getData();

@@ -1,6 +1,6 @@
 //Pixelation magnitude
 final int PIX_SIZE = 10;
-String fileName = "image"
+String fileName = "image";
 // Read the JPG
 BufferedImage img = ImageIO.read(new File(fileName + ".jpg"));
 

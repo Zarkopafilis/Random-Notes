@@ -18,10 +18,8 @@ for(int y = 0; y < src.getHeight(); y += PIX_SIZE) {
         double[] pixel = new double[3];
         pixel = src.getPixel(x, y, pixel);
 
-        // "Paste" the pixel onto the surrounding PIX_SIZE by PIX_SIZE neighbors
+        // Put the pixels data to an "big" square ( PIX_SIZE * PIX_SIZE ) made of pixels
         // Also make sure that our loop never goes outside the bounds of the image
-        
-        //Study that
         for(int yd = y; (yd < y + PIX_SIZE) && (yd < dest.getHeight()); yd++) {
             for(int xd = x; (xd < x + PIX_SIZE) && (xd < dest.getWidth()); xd++) {
                 dest.setPixel(xd, yd, pixel);
@@ -35,3 +33,6 @@ img.setData(dest);
 
 //Write the new JPG
 ImageIO.write(img, "jpg", new File(fileName + "-pixelated.jpg"));
+
+//I would like some math calculating what color should be the best to be selected , but thats another story.
+//(Get the "average" pixel data of the area first)

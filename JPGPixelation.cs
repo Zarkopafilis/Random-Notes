@@ -22,3 +22,4 @@ for(int y = 0; y < src.getHeight(); y += PIX_SIZE) {
 }
 
 dest.Save(fileName + "-pixelated.jpg", System.Drawing.Imaging.ImageFormat.JPG);
+//must test

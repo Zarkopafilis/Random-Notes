@@ -34,4 +34,4 @@ for(int y = 0; y < src.getHeight(); y += PIX_SIZE) {
 img.setData(dest);
 
 //Write the new JPG
-ImageIO.write(img, "jpg", new File(fileName+ "-pixelated.jpg"));
+ImageIO.write(img, "jpg", new File(fileName + "-pixelated.jpg"));

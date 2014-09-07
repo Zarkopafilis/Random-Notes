@@ -24,5 +24,5 @@ read jar
 #  Sign all the class files in the jar with the given keystore
 jarsigner -keystore $keystore $jar.jar $alias 
 #  Close the command prompt after 5 seconds
-read -t5 -n1 -r -p "Closing int 5 seconds..." key
+read -t5 -n1 -r -p "Closing in 5 seconds..." key
 exit

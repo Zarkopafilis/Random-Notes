@@ -37,10 +37,16 @@ public class SignStuff implements Listener {
 						return;
 					}
 					
+					
+					
 					if(cmd.contains("$p"))
 					cmd = cmd.replaceAll("$p", e.getPlayer().getName());
 					
-					Bukkit.getServer().dispatchCommand(e.getPlayer(), cmd);
+					if(s.getLine(2) != null && s.getLine(2).equals("Console")){
+					    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
+					}else{
+					    Bukkit.getServer().dispatchCommand(e.getPlayer(), cmd);
+					}
 					
 				}
 				

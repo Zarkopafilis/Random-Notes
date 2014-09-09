@@ -26,7 +26,7 @@ public class RulesCommand implements CommandExecutor {
 		return true;
 	}
 
-	public static String colorize(String s){
+	public static String colorize(String s){//There's a ChatColor method for that...im too lazy...
         if(s == null) return null;
         s = s.replaceAll("&l", ChatColor.BOLD.toString());
         s = s.replaceAll("&n", ChatColor.UNDERLINE.toString());

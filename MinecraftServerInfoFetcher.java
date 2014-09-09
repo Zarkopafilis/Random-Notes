@@ -5,6 +5,7 @@ import java.net.SocketException;
 import java.nio.charset.Charset;
  
 public final class MinecraftServer {
+	//address and stuff and variables and stuff
 	private String address = "localhost";
 	private int port = 25565;
  
@@ -12,12 +13,12 @@ public final class MinecraftServer {
  
 	private int pingVersion = -1;
 	private int protocolVersion = -1;
-	private String gameVersion;
-	private String motd;
+	private String gameVersion + "err";
+	private String motd = "err";
 	private int playersOnline = -1;
 	private int maxPlayers = -1;
  
-	public MinecraftServer() {
+	public MinecraftServer() {//constructor tree
  
 	}
  
@@ -39,7 +40,7 @@ public final class MinecraftServer {
 		this.setTimeout(timeout);
 	}
  
-	public void setAddress(String address) {
+	public void setAddress(String address) {//getters and setters
 		this.address = address;
 	}
  
@@ -111,7 +112,7 @@ public final class MinecraftServer {
 		return this.maxPlayers;
 	}
  
-	public boolean fetchData() {
+	public boolean fetchData() {//send a byte array : 0xFE , 0x01 => (254,1), perhaps packet to get on multiplayer server selection state
 		try {
 			Socket socket = new Socket();
 			OutputStream outputStream;
@@ -137,7 +138,7 @@ public final class MinecraftServer {
 				(byte) 0x01
 			});
  
-			int packetId = inputStream.read();
+			int packetId = inputStream.read();//get input
  
 			if (packetId == -1) {
 				throw new IOException("Premature end of stream.");
@@ -157,7 +158,7 @@ public final class MinecraftServer {
 				throw new IOException("Invalid string length.");
 			}
  
-			char[] chars = new char[length];
+			char[] chars = new char[length];//if not corrupted and stuff read it
  
 			if (inputStreamReader.read(chars,0,length) != length) {
 				throw new IOException("Premature end of stream.");
@@ -165,8 +166,8 @@ public final class MinecraftServer {
  
 			String string = new String(chars);
  
-			if (string.startsWith("§")) {
-				String[] data = string.split("\0");
+			if (string.startsWith("\u00A7")) {//§
+				String[] data = string.split("\0");//split every
  
 				this.setPingVersion(Integer.parseInt(data[0].substring(1)));
 				this.setProtocolVersion(Integer.parseInt(data[1]));
@@ -174,13 +175,13 @@ public final class MinecraftServer {
 				this.setMotd(data[3]);
 				this.setPlayersOnline(Integer.parseInt(data[4]));
 				this.setMaxPlayers(Integer.parseInt(data[5]));
-			} else {
-				String[] data = string.split("§");
+			} else {//old protocol and stuff?
+				String[] data = string.split("\u00A7");
  
 				this.setMotd(data[0]);
 				this.setPlayersOnline(Integer.parseInt(data[1]));
 				this.setMaxPlayers(Integer.parseInt(data[2]));
-			}
+			}//we need a way to get server image
  
 			dataOutputStream.close();
 			outputStream.close();

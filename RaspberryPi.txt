@@ -64,3 +64,7 @@ This one is for raspberry pi. I am getting one soon and want to tell you some st
 - If you have no audio try turning volume to max and forcing audio output with amixer
 
 - Omxplayer lags a little at the start of the video even with 'gpu_ram=128' line @ /boot/config.txt
+
+- Go ahead install Kodi (XBMCs new name) its fucking useful....
+
+- LimelightPi is a kickass program (and concept)

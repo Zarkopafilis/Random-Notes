@@ -8,3 +8,5 @@ MODE??????
 
 Just rooted my Nexus 7 and put cyanogenmod. It is amazing.
 Just rooted my Optimus L3 and it sucks. Not fucking easy to unlock the bootloader!
+L3 got bricked....fucking Manufacturer update requires stock recovery THAT SUCKS HARD!(I had clockwork installed)
+Stuck with my father's iPhone 3G iOS 4.......

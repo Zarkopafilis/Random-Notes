@@ -26,3 +26,4 @@ jarsigner -keystore $keystore $jar.jar $alias
 #  Close the command prompt after 5 seconds
 read -t5 -n1 -r -p "Closing in 5 seconds..." key
 exit
+ 

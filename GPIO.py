@@ -1,3 +1,6 @@
+#Better use java 8 for raspberry...ME got merged into SE (you now have GUIs and shit that look good.Also native pin
+#and device manager APIs and stuff)
+
 #Notes regarding raspberry pi's GPIO pins
 
 #I sometimes forget some stuff

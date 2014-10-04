@@ -4,3 +4,5 @@ without partitioning the disk , but keeping files and stuff in one folder (with 
 the stored ones) which is used as the disk storage.
 
 So , if your game has missing files , be sure to download the correct version of parent roms and cfg files!
+
+Fun fact * JD uses cfg files for some reason

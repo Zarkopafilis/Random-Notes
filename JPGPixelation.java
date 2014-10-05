@@ -1,3 +1,6 @@
+//Inspired from a Sims bug , it can also be used to scramble visuals of a pirated game published by the same
+//devs that built the game. Such stuff are really effective like shipping a pirated copy of the game that is broken
+//- like without an end -
 //Pixelation magnitude
 final int PIX_SIZE = 10;
 String fileName = "image";

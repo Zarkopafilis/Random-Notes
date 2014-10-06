@@ -1,59 +1,156 @@
 There is a lot of undefined, unspecified, and implementation-defined behaviour in C++. For example, there are not necessarily 8 bits in a byte. But assuming a byte has 8 bits is not likely to cause your code to break unless you port to obscure architectures, so I'm going to omit "pedantic" examples like this. Of course I'll also include things that are perfectly well-defined but programmers often don't know about. I will omit things that affect a large number of programming languages, such as floating point inexactness. Without further ado, here's a very incomplete and possibly inaccurate list:
 volatile is useless for concurrency; it offers no guarantee of atomicity.
-Unsequenced writes to the same scalar variable cause undefined behaviour. So do a read and write to the same scalar variable, when unsequenced.
+
+Unsequenced writes to the same scalar variable cause undefined behaviour.
+So do a read and write to the same scalar variable, when unsequenced.
+
 Evaluation of argument expressions in a function call are unsequenced (i.e., they might even overlap)
+
 Returning a local variable by reference is always a bug, even if it's an rvalue reference.
+
 Declaring a static data member inline doesn't define it, even if it has an initializer.
+
 Any declaration of a member function hides all declarations of members of base classes with the same names.
+
 Unqualified lookup for a nondependent name will not find members of dependent base classes.
+
 Types nested within dependent classes need to be introduced with the typename keyword: typename Foo<T>::Bar.
+
 Templates nested within dependent classes need to be prefixed by template: Foo<T>::template Bar<U>.
-Variables first declared at namespace that are const or constexpr (and not volatile) have internal linkage (rather than external).
+
+Variables first declared at namespace that are const or constexpr (and not volatile) have 
+internal linkage (rather than external).
+
 The order of initialization of non-local static variables in different translation units is unspecified.
-If you explicitly call the destructor for a local variable, it's still going to be called again at the end of its scope, which usually results in undefined behaviour.
-Only variables of type volatile std::sig_atomic_t and lock-free atomic variables may be safely accessed inside signal handlers. Only a small set of C library functions may be safely called inside signal handlers. Note that printf is not one of them!
-If a variable is allocated using new and deallocated using free, the behaviour is undefined. Same goes if the variable is allocated using malloc and deallocated using delete. A pointer to an array allocated with new[] must be deallocated with delete[], or the behaviour is undefined.
-If a dynamically allocated object is deleted through a pointer to a base class of the object type, the class must have a virtual destructor, or the behaviour is undefined.
-Dynamic memory allocation with new may fail by throwing std::bad_alloc (most programmers forget to account for the fact that it might fail).
+
+If you explicitly call the destructor for a local variable, 
+it's still going to be called again at the end of its scope, which usually results in undefined behaviour.
+
+Only variables of type volatile std::sig_atomic_t and lock-free atomic variables may be safely accessed inside signal handlers.
+Only a small set of C library functions may be safely called inside signal handlers. Note that printf is not one of them!
+
+If a variable is allocated using new and deallocated using free,
+the behaviour is undefined. Same goes if the variable is allocated using malloc and
+deallocated using delete. A pointer to an array allocated with new[] 
+must be deallocated with delete[], or the behaviour is undefined.
+
+If a dynamically allocated object is deleted through a pointer to a base class of the object type,
+the class must have a virtual destructor, or the behaviour is undefined.
+
+Dynamic memory allocation with new may fail by throwing std::bad_alloc 
+(most programmers forget to account for the fact that it might fail).
+
 wchar_t may not be 16 bits long, and may not be large enough to hold arbitrary Unicode code points.
-It's normally undefined behaviour to access an object using a pointer to an unrelated type, unless it's char or unsigned char. (strict aliasing) Also, doing so generally involves making non-portable assumptions about the representations of types in memory, anyway.
-The four categories of pointers may all have different sizes: object pointers, function pointers, pointers to data members, and pointers to function members.
+
+It's normally undefined behaviour to access an object using a pointer to an unrelated type, unless it's char or unsigned char.
+(strict aliasing) Also, doing so generally involves making non-portable assumptions about the representations of
+types in memory, anyway.
+
+The four categories of pointers may all have different sizes: object pointers, function pointers, pointers to data members,
+and pointers to function members.
+
 Most vexing parse
 decltype(x) and decltype((x)) may have different meanings. In C++14, beware of using decltype(auto) to deduce function return types; return x; and return (x); may deduce different types.
 auto and decltype do not necessarily deduce types in the same way.
+
 Lambda expressions are not true closures in that they do not extend the lifetimes of objects captured by reference.
+
 Every lambda expression in a program has a different type, even two occurrences of [](){}.
+
 Shifts have lower precedence than addition and subtraction.
+
 Before C++11, two closing template angle brackets had to be separated by whitespace.
-If you call a virtual function inside a constructor or destructor, it behaves as though it's non-virtual: that is, dispatch always occurs on the type to which the constructor or destructor belongs and not the type of the complete object under construction or destruction.
-If an exception leaks out of a destructor during stack unwinding, the program terminates abnormally (i.e. std::terminate is called)
-sizeof when applied to a pointer always gives the size of the pointer type, even if the pointer points to an array; it doesn't give the size of the array.
-Top-level const qualifiers on function parameters don't affect the function signature; a function with declaration void f(const int x); matches a definition that starts with void f(int x) { ...
-Top-level array function parameters are silently rewritten to be pointers. In void f(int a[5]), sizeof(a) will always be sizeof(int*) and not sizeof(int[5]).
-Attempting to modify a string literal causes undefined behaviour. (In fact, from C++11 onward, technically code like char* p = "Hello, world!" is ill-formed, but a lot of compilers still allow it. To get a char* you would need a const_cast.)
+
+If you call a virtual function inside a constructor or destructor,
+it behaves as though it's non-virtual: that is
+, dispatch always occurs on the type to which the constructor or destructor belongs and not the type of the complete
+object under construction or destruction.
+
+If an exception leaks out of a destructor during stack unwinding, the program terminates abnormally
+(i.e. std::terminate is called)
+
+sizeof when applied to a pointer always gives the size of the pointer type,
+even if the pointer points to an array; it doesn't give the size of the array.
+
+Top-level const qualifiers on function parameters don't affect the function signature;
+a function with declaration void f(const int x); matches a definition that starts with void f(int x) { ...
+
+Top-level array function parameters are silently rewritten to be pointers.
+
+In void f(int a[5]), sizeof(a) will always be sizeof(int*) and not sizeof(int[5]).
+
+Attempting to modify a string literal causes undefined behaviour.
+(In fact, from C++11 onward, technically code like char* p = "Hello, world!" 
+is ill-formed, but a lot of compilers still allow it. To get a char* you would need a const_cast.)
+
 Shifting by an amount equal to or greater than the number of bits in the operand causes undefined behaviour.
+
 The ternary conditional operator won't find a common base class of its second and third arguments.
-A braced-init-list is not an expression and is only allowed in contexts where it is immediately used for initialization; for example, std::vector<int> v = foo ? {1, 2} : {3, 4}; is illegal.
-The controlling expression for a switch statement can't be a string; it has to of integral or enumeration type or a class type that can be implicitly converted to integral or enumeration type.
-If control flows off the end of a non-void-returning function (i.e., the function is not exited with return, throw, longjmp, or call to a function that terminates the thread or program) then the behaviour is undefined. The function does not necessarily return a value-initialized object.
+
+A braced-init-list is not an expression and is only allowed in contexts where it 
+is immediately used for initialization; for example, std::vector<int> v = foo ? {1, 2} : {3, 4}; is illegal.
+
+The controlling expression for a switch statement can't be a string;
+it has to of integral or enumeration type or a class type that can be implicitly converted to integral or enumeration type.
+
+If control flows off the end of a non-void-returning function (i.e., the function is not exited with return, 
+throw, longjmp, or call to a function that terminates the thread or program) 
+then the behaviour is undefined. The function does not necessarily return a value-initialized object.
+
 A goto statement can't skip nontrivial initialization going forward, nor can it jump into or out of a function.
+
 register often doesn't do anything in modern compilers.
-inline often doesn't change whether or not a function is actually inlined, but allows the function to be defined in multiple translation units.
+
+inline often doesn't change whether or not a function is actually inlined, but allows the function to 
+be defined in multiple translation units.
+
 Partially specialized friends are not allowed.
+
 The name of a reference is always an lvalue even if the reference is an rvalue reference.
-A parameter declared to have type T&& where T is a template parameter is allowed to bind to lvalues; in this case T will be deduced as an lvalue reference type (see Universal References in C++11-Scott Meyers)
+
+A parameter declared to have type T&& where T is a template parameter is allowed to bind to lvalues; 
+in this case T will be deduced as an lvalue reference type (see Universal References in C++11-Scott Meyers)
+
 C99 variable-length arrays are not supported in C++ (if your compiler allows it, it's a non-portable extension)
+
 Copy-initialization of a class does not call an assignment operator; an initialization is not an assignment.
-If a virtual function has default arguments, the default argument values used when the virtual function is called are always those of the static type, not the dynamic type.
-When a derived class object is passed by value or stored in an array of base class, the derived class object is "sliced" and becomes a base class object, losing its "derivedness".
-In general, if T is a class template, B is a base class, and D is a derived class, then T<D> is not automatically convertible to T<B>.
-When a function returns a local variable by value, the compiler is allowed to elide the copy from the local variable into the function's return value, by directly using the function's return value whenever the local variable is used inside the function. This is a form of return value optimization called "named return value optimization".
-When a function returns by value, and the value is copied or moved into a variable of the same type, the compiler is allowed to elide the copy from the function's return value into the object it is used to initialize, by directly initializing the destination object in the return statement rather than constructing a temporary first and then copying or moving into the destination object. This is also called return value optimization, and may be combined with named return value optimization.
-Return value optimziation is an exception to the "as-if" rule; the compiler is allowed to perform it even if this changes the program's observable behaviour (e.g., because the copy constructor has side effects)
-A destructor needs a definition even when it is pure virtual. A pure virtual function can be called by qualifying it with the name of the class of which it is a member.
-If two non-static data members have different visibilities within a class, their relative order in the class layout is unspecified.
-Private member functions are not invisible in C++ like they are in Java: they still participate in overload resolution even when they are inaccessible, and they may be overridden.
-Pure virtual member functions can't be implemented "sideways"; if A declares a pure virtual member function f and B implements a virtual member function f with the same signature, a class D that derives from A and B does not contain an implementation of f. Instead the program is ill-formed.
+
+If a virtual function has default arguments, the default argument values used when the virtual function 
+is called are always those of the static type, not the dynamic type.
+When a derived class object is passed by value or stored in an array of base class, 
+the derived class object is "sliced" and becomes a base class object, losing its "derivedness".
+
+In general, if T is a class template, B is a base class, and D is a derived class, then T<D> is not automatically
+convertible to T<B>.
+
+When a function returns a local variable by value, the compiler is allowed to elide
+the copy from the local variable into the function's return value, by directly using the function's 
+return value whenever the local variable is used inside the function. This is a form of return value 
+optimization called "named return value optimization".
+
+When a function returns by value, and the value is copied or moved into a variable of the same type,
+the compiler is allowed to elide the copy from the function's return value into the object it is used to initialize,
+by directly initializing the destination object in the return statement rather than constructing a temporary
+first and then copying or moving into the destination object. This is also called return value optimization, 
+and may be combined with named return value optimization.
+
+Return value optimziation is an exception to the "as-if" rule; the compiler is allowed to perform it even if
+this changes the program's observable behaviour (e.g., because the copy constructor has side effects)
+
+A destructor needs a definition even when it is pure virtual. 
+A pure virtual function can be called by qualifying it with the name of the class of which it is a member.
+
+If two non-static data members have different visibilities within a class,
+their relative order in the class layout is unspecified.
+
+Private member functions are not invisible in C++ like they are in Java: they still participate
+in overload resolution even when they are inaccessible, and they may be overridden.
+
+Pure virtual member functions can't be implemented "sideways"; 
+if A declares a pure virtual member function f and B implements a virtual member function 
+f with the same signature, a class D that derives from A and B does not contain an implementation of f.
+Instead the program is ill-formed.
+
 Access control for members is checked statically; if B has a public virtual function that is overridden by a private function in a derived class D, then the latter may be called unconditionally through a B*.
 Private members of an object may be accessed by member functions of another object of the same type; access control is per-class, not per-object.
 Friendship is neither inherited nor transitive.

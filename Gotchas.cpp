@@ -154,46 +154,131 @@ Instead the program is ill-formed.
 Access control for members is checked statically; if B has a public virtual function that is overridden by a private function in a derived class D, then the latter may be called unconditionally through a B*.
 Private members of an object may be accessed by member functions of another object of the same type; access control is per-class, not per-object.
 Friendship is neither inherited nor transitive.
-When a member function of a derived class D attempts to access a non-static protected member of its base class B, the object expression used to access the member must have cv-unqualified D or a class derived from D.
-A constructor can't be directly called by using its name (well, the standard says constructors don't have names; never mind that, it's just a matter of wording). To force a constructor to be called over a block of memory, use placement new.
-In C++11 and later, destructors are noexcept(true) by default (unless they call functions that are allowed to throw) even if they contain throw expressions.
-Non-virtual base classes are initialized in declaration order, regardless of the order in which they appear in a ctor-initializer.
-Non-static data members are initialized in declaration order, regardless of the order in which they appear in a ctor-initializer; and they are initialized after base classes.
+
+When a member function of a derived class D attempts to access a non-static protected member of its base class B,
+the object expression used to access the member must have cv-unqualified D or a class derived from D.
+
+A constructor can't be directly called by using its name (well, the standard says constructors don't have names;
+never mind that, it's just a matter of wording).
+To force a constructor to be called over a block of memory, use placement new.
+
+In C++11 and later, destructors are noexcept(true) by default (unless they call functions that are allowed to throw)
+even if they contain throw expressions.
+
+
+Non-virtual base classes are initialized in declaration order, regardless of the order in which they appear
+in a ctor-initializer.
+
+Non-static data members are initialized in declaration order,
+regardless of the order in which they appear in a ctor-initializer; and they are initialized after base classes.
+
 A mem-initializer overrides a brace-or-equal-initializer.
-Base classes and non-static members are always initialized before the first statement in the constructor's body, even when they are not mentioned in either the ctor-initializer or a brace-or-equal-initializer; in that case they are default-initialized. Assignment to a non-static member in the constructor body is not initialization even when it occurs on the first line. Therefore, references and class types without default constructors must be initialized in the ctor-initializer or a brace-or-equal-initializer; you can't postpone their initialization until the constructor body.
+
+Base classes and non-static members are always initialized before the first statement in the constructor's body,
+even when they are not mentioned in either the ctor-initializer or a brace-or-equal-initializer;
+in that case they are default-initialized. Assignment to a non-static member in the constructor body is
+not initialization even when it occurs on the first line. Therefore, references and class types without
+default constructors must be initialized in the ctor-initializer or a brace-or-equal-initializer;
+you can't postpone their initialization until the constructor body.
+
 Two function declarations are considered equivalent if they only differ in their default arguments.
+
 Overload resolution is really complicated.
-Overloaded assignment operators, function call operators, subscripting operators, and -> operators must be member functions.
-The preprocessor doesn't know that, e.g., pair<int, int> should be treated as a single argument to a preprocessor macro, rather than two arguments, pair<int and int>. Use parentheses to prevent the preprocessor from breaking up a group of tokens.
-Non-dependent names are bound at the point of declaration; dependent names are bound at the point of instantiation. (This is called "two-phase lookup").
-Member function templates shall not be virtual, although member functions of class templates are allowed to be virtual.
+
+Overloaded assignment operators, function call operators, subscripting operators,
+and -> operators must be member functions.
+
+The preprocessor doesn't know that, e.g., pair<int, int> should be treated as a single argument
+to a preprocessor macro, rather than two arguments, 
+pair<int and int>. Use parentheses to prevent the preprocessor from breaking up a group of tokens.
+
+Non-dependent names are bound at the point of declaration; dependent names are bound at the point of instantiation.
+(This is called "two-phase lookup").
+
+Member function templates shall not be virtual, although member functions of class templates are allowed 
+to be virtual.
+
 An explicit specialization declaration has to start with template<>.
-Most compilers won't allow you to refer to a template defined in another translation unit unless you're referring to a specialization of the template that was instantiated in the other translation unit. This is why the standard library containers are implemented almost completely in headers.
+
+Most compilers won't allow you to refer to a template defined in another translation unit unless you're
+referring to a specialization of the template that was instantiated in the 
+other translation unit. This is why the standard library containers are implemented almost completely in headers.
+
 Function templates can't be partially specialized; just overloaded.
-If an exception is caught as, say, e, the statement throw e; creates a new exception object by copying e. To rethrow e, the correct code is simply throw;
+
+If an exception is caught as, say, e, the statement throw e;
+creates a new exception object by copying e. To rethrow e, the correct code is simply throw;
+
 Catching an exception does not invoke user-defined conversions.
+
 catch blocks are tried in order of appearance; the "best match" is not necessarily selected.
-An exception caught by the function-try-block of a constructor or destructor will be inevitably rethrown; the exception cannot be "swallowed". This is because the failure of construction or destruction is a circumstance that cannot be handled locally.
-The preprocessor operates on tokens, not strings. If we have #define wstr(s) w#s, then wstr(foo) will expand to something like w "foo" (two tokens) rather than the wide-string literal w"foo", which is a single token.
+
+An exception caught by the function-try-block of a constructor or destructor will be inevitably rethrown;
+the exception cannot be "swallowed". This is because the failure of construction or destruction is
+a circumstance that cannot be handled locally.
+
+The preprocessor operates on tokens, not strings. 
+If we have #define wstr(s) w#s, then wstr(foo) will expand to something like w "foo" 
+(two tokens) rather than the wide-string literal w"foo", which is a single token.
+
 A moved-from container is not necessarily empty (but can be explicitly cleared).
-std::type_info::name() does not necessarily return the actual name of a type. (For example, it might return "I" for int.)
-std::make_pair and std::make_tuple always decay their arguments; if a pair or tuple is required containing (say) a reference, the std::pair or std::tuple template must be explicitly instantiated.
-A std::unique_ptr that points to an array allocated with new T[n] must have the array type T[] as its template argument and not T itself, so it knows to call delete[]. (NB: std::vector is usually a better choice here.)
-std::shared_ptr can only be used with arrays when a custom deleter is provided; the default deleter always calls delete and not delete[].
+
+std::type_info::name() does not necessarily return the actual name of a type.
+(For example, it might return "I" for int.)
+
+std::make_pair and std::make_tuple always decay their arguments;
+if a pair or tuple is required containing (say) a reference, 
+the std::pair or std::tuple template must be explicitly instantiated.
+
+A std::unique_ptr that points to an array allocated with new T[n]
+must have the array type T[] as its template argument and not T itself,
+so it knows to call delete[]. (NB: std::vector is usually a better choice here.)
+
+std::shared_ptr can only be used with arrays when a custom deleter is provided;
+the default deleter always calls delete and not delete[].
+
 Inserting an element into a vector may invalidate iterators and references into the vector.
+
 Deques are not guaranteed to store their elements contiguously in memory.
-iterator and const_iterator may be the same type or different types for std::set, std::multiset, std::unordered_set, and std::unordered_multiset. It's unspecified.
-The ordering predicate for an ordered associative container must be a strict weak ordering; otherwise the result is undefined behaviour.
-std::vector<bool> is a strange type similar to a dynamic bitset and in general you can't obtain references to its elements. (This is widely regarded as a mistake.)
-The std::stack, std::queue, and std::priority_queue container adaptors lack clear functions. Also, their pop functions return void, not the object popped.
+
+iterator and const_iterator may be the same type or different types for std::set,
+std::multiset, std::unordered_set, and std::unordered_multiset. It's unspecified.
+
+The ordering predicate for an ordered associative container must be a strict
+weak ordering; otherwise the result is undefined behaviour.
+
+std::vector<bool> is a strange type similar to a dynamic bitset and in general you can't 
+obtain references to its elements. (This is widely regarded as a mistake.)
+
+The std::stack, std::queue, and std::priority_queue container adaptors lack clear functions. 
+Also, their pop functions return void, not the object popped.
+
 The std::unique function doesn't remove any objects from containers.
-A member operator< for use with ordered associative containers or standard library algorithms such as std::sort must be const-qualified and must take its argument by value or const reference but not non-const reference. If you use a non-member operator<, it must take both arguments by value or const reference but not non-const reference.
-The gets function should basically never be used as it is impossible to protect against buffer overflow. Likewise, when reading a string with scanf an explicit limit on the number of characters to be stored should be specified.
-Testing a stream for end-of-file doesn't return true immediately after the last character of the stream has been read. You have to attempt to read beyond the end of file before the end-of-file flag will be set.
-Attempting to print out a volatile pointer or a pointer to member by inserting it into a stream will cause it to be converted to bool rather than printing out the numeric address.
-Reading a character using operator>> will not read a whitespace character; this is in contrast to the behaviour of the %c format specifier for scanf, which always reads the next character regardless of what it is.
+
+A member operator< for use with ordered associative containers or standard library algorithms 
+such as std::sort must be const-qualified and must take its argument by value or const reference 
+but not non-const reference. If you use a non-member operator<, it must take both arguments by value
+or const reference but not non-const reference.
+
+The gets function should basically never be used as it is impossible to protect 
+against buffer overflow. Likewise, when reading a string with scanf an explicit limit on the number 
+of characters to be stored should be specified.
+
+Testing a stream for end-of-file doesn't return true immediately after the last
+character of the stream has been read. You have to attempt to read beyond the
+end of file before the end-of-file flag will be set.
+
+Attempting to print out a volatile pointer or a pointer to member by 
+inserting it into a stream will cause it to be converted to bool rather than printing out the numeric address.
+
+Reading a character using operator>> will not read a whitespace character; 
+this is in contrast to the behaviour of the %c format specifier for scanf, 
+which always reads the next character regardless of what it is.
+
 std::endl is an overloaded function, not an object.
+
 iostreams tend to be slow unless you set ios::sync_with_stdio(false).
+
 In C++03, file streams don't have constructors that accept std::string filenames.
 
 Holy shitfuck this guy wrote everything credits to him he is awesome:

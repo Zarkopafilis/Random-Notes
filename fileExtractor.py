@@ -9,6 +9,7 @@ def unique(seq):
 print "---File Extractor---"
 print ""
 
+
 root = unicode(raw_input("Directory to extract files from: "))
 
 print "Analyzing filetypes..."
@@ -21,7 +22,7 @@ for path, subdirs, files in os.walk(root):
     for name in files:
         ext = unicode(name).split(".")[-1]
         extensions.append(ext)
-        i++
+        i+=1
 
 extensions = unique(extensions)
 
@@ -30,19 +31,24 @@ print "File types available: "
 for ext in extensions:
     print ext
 
-print "Total files: " + i
+print "Total files: " + str(i)
 
 target = unicode(raw_input("Directory to save extracted files to: "))
-pattern = unicode(raw_input("File pattern: "))
+pattern = unicode(raw_input("File extensions (Split by -): "))
+
+pattern = pattern.split("-")
 
 i=0
 
 for path, subdirs, files in os.walk(root):
     for name in files:
-        if fnmatch(unicode(name), unicode(pattern)):
-            x = unicode(os.path.join(unicode(path), unicode(name)))
-            print "Copying file: " + x
-            shutil.copy2(unicode(x) , unicode(target))
-            i++
+        for ext in pattern:
+            if fnmatch(unicode(name) , unicode("*." + ext)):
+                x = unicode(os.path.join(unicode(path), unicode(name)))
+                print "Copying file: " + x
+                shutil.copy2(unicode(x) , unicode(target))
+                i+=1
 
-print "Total files moved: " + i
+print "Total files moved: " + str(i)
+
+raw_input("Press any key to exit...")

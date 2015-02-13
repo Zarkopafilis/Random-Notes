@@ -1,0 +1,47 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+ 
+	index index.php index.html;
+ 
+	root /var/www/vhosts/pcbuilds.gr/httpdocs;
+ 
+	# Make site accessible from http://localhost/
+	server_name localhost;
+ 
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+		# Uncomment to enable naxsi on this location
+		# include /etc/nginx/naxsi.rules
+	}
+ 
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		# NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+	
+		# With php5-cgi alone:
+		#fastcgi_pass 127.0.0.1:9000;
+		# With php5-fpm:
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+	try_files $uri $uri/ /index.php;
+	if (!-e $request_filename){
+		rewrite ^/(.*)$ /index.php?/$1? last;
+	}
+	location /index.php {
+		set $script     $uri;
+		set $path_info  $uri;
+		if ($args ~* "^(/.+)$") {
+			set $path_info  $1;
+		}
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		fastcgi_param PATH_INFO $path_info;
+	}
+	if ($request_uri ~* "^(.*/)index\.php$") {
+		return 301 $1;
+	}
+}

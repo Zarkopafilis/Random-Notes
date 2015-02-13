@@ -4,7 +4,7 @@ server {
  
 	index index.php index.html;
  
-	root /var/www/vhosts/pcbuilds.gr/httpdocs;
+	root /var/www/vhosts/domain/httpdocs;
  
 	# Make site accessible from http://localhost/
 	server_name localhost;

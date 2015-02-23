@@ -15,7 +15,6 @@ def safeDictGet(dictionary , key):
 print "---File Extractor---"
 print ""
 
-
 root = unicode(raw_input("Directory to extract files from: "))
 
 print "Analyzing filetypes..."
@@ -27,7 +26,9 @@ i=0
 
 for path, subdirs, files in os.walk(root):
     for name in files:
-        ext = unicode(name).split(".")[-1]
+        ext = "No extension"
+        if "." in name:
+            ext = unicode(name).split(".")[-1]
         extensions.append(ext)
         nums[ext] = safeDictGet(nums , ext) + 1
         i+=1
@@ -40,9 +41,10 @@ for ext in extensions:
     print ext + " - " + str(nums[ext]) + " files"
 
 print "Total files: " + str(i)
+print "No extension = files with no actual extension"
 
 target = unicode(raw_input("Directory to save extracted files to: "))
-pattern = unicode(raw_input("File extensions (Split by '-'): "))
+pattern = unicode(raw_input("File extensions (Split by '-' , you can use 'No extension'): "))
 
 pattern = pattern.split("-")
 
@@ -51,7 +53,7 @@ i=0
 for path, subdirs, files in os.walk(root):
     for name in files:
         for ext in pattern:
-            if fnmatch(unicode(name) , unicode("*." + ext)):
+            if fnmatch(unicode(name) , unicode("*." + ext)) or ("No extension" in pattern and "." not in name):
                 x = unicode(os.path.join(unicode(path), unicode(name)))
                 print "Copying file: " + x
                 shutil.copy2(unicode(x) , unicode(target))

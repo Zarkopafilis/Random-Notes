@@ -44,19 +44,42 @@ print "Total files: " + str(i)
 print "No extension = files with no actual extension"
 
 target = unicode(raw_input("Directory to save extracted files to: "))
-pattern = unicode(raw_input("File extensions (Split by '-' , you can use 'No extension'): "))
 
+if not os.path.exists(target):
+    print "Target directory does not exist, creating it for you..."
+    os.makedirs(target)
+
+pattern = unicode(raw_input("File extensions (Split by '-'): "))
 pattern = pattern.split("-")
+
+grabFilesWithoutExtension = False
+gfwo = raw_input("Grab files without extension?(yes/no)")
+if(gfwo == "yes"):
+    gfwo = True
+
+mkdirs = raw_input("Make folders based on file type?(yes/no)")
+if(mkdirs == "yes"):
+    print "Generating directories"
+    for ext in pattern:
+        if not os.path.exists(ext):
+            print "Creating directory for " + ext + " files"
+            os.makedirs(os.path.join(target , ext))
 
 i=0
 
 for path, subdirs, files in os.walk(root):
     for name in files:
         for ext in pattern:
-            if fnmatch(unicode(name) , unicode("*." + ext)) or ("No extension" in pattern and "." not in name):
+            if fnmatch(unicode(name) , unicode("*." + ext)) or (gfwo and "." not in name):
                 x = unicode(os.path.join(unicode(path), unicode(name)))
                 print "Copying file: " + x
-                shutil.copy2(unicode(x) , unicode(target))
+                if "." not in name:
+                    y = os.path.join(os.path.join(target , "no_extension") , name)
+                    if not os.path.exists(y):
+                        os.makedirs(y)
+                    shutil.copy2(unicode(x) , y)
+                else:    
+                    shutil.copy2(unicode(x) , os.path.join(os.path.join(target , ext) , name))
                 i+=1
 
 print "Total files moved: " + str(i)

@@ -1,6 +1,6 @@
-Check if actor mesh is of specific type
-=======================================
+I like: Making C++ classes, coding all the behavior there. Then creating blueprints that edit defaults only.
 
+Check if actor mesh is of specific type
 for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::StaticClass()) {
  
         if(((UStaticMeshComponent*) i)->StaticMesh->GetPathName().Equals("/Game/FirstPerson/Meshes

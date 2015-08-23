@@ -6,3 +6,5 @@ for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::
         if(((UStaticMeshComponent*) i)->StaticMesh->GetPathName().Equals("/Game/FirstPerson/Meshes
         /FirstPersonTemplateCube.FirstPersonTemplateCube"))... *Dont forget continue;
  }
+
+Don't forget about UGameplayStatics

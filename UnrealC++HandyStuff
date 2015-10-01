@@ -8,3 +8,8 @@ for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::
  }
 
 Don't forget about UGameplayStatics
+
+Vector math support operator overloading :)
+
+Apply velocity to an actor that Actor->IsRootComponentMovable && Actor->GetRootComponent()->IsSimulatingPhysics
+Actor->GetRootPrimitiveComponent()->SetPhysicsLinearVelocity(velocity, false);

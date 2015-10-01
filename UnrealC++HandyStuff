@@ -14,4 +14,5 @@ Vector math support operator overloading :)
 Apply velocity to an actor that Actor->IsRootComponentMovable && Actor->GetRootComponent()->IsSimulatingPhysics
 Actor->GetRootPrimitiveComponent()->SetPhysicsLinearVelocity(velocity, false);
 
-The generated header file include should be the last include
+The generated header file include should be the last include and the first include needs to be the header file
+with the name of your project

@@ -24,5 +24,10 @@ is as follows:
 FTimerHandle TimerHandle;
 
 *Somewhere in your .cpp file*
-GetWorldTimerManager().SetTimer(TimerHandle, this , &Method, Duration, false, 0.1f);
+GetWorldTimerManager().SetTimer(TimerHandle, this , &Method, DelayBetweenLoops , LoopTheTimer, FirstDelayInSeconds);
+
+Obviously if LoopTheTimer is false , DelayBetweenLoops is going to be ignored.
+
+Delay(FirstDelayInSeconds) -> &Method -> If LoopTheTimer == true -> Delay (DelayBetweenLoops) -> &Method -> ... *Till 
+timer is stopped
 

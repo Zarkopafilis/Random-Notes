@@ -16,3 +16,13 @@ Actor->GetRootPrimitiveComponent()->SetPhysicsLinearVelocity(velocity, false);
 
 The generated header file include should be the last include and the first include needs to be the header file
 with the name of your project
+
+In order to add a timer in C++ you need a FTimerHandle in order to keep track of it. It is included in Actor.h, the syntax
+is as follows:
+
+*Declare somewhere - Probably .h file*
+FTimerHandle TimerHandle;
+
+*Somewhere in your .cpp file*
+GetWorldTimerManager().SetTimer(TimerHandle, this , &Method, Duration, false, 0.1f);
+

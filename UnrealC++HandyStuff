@@ -23,7 +23,7 @@ is as follows:
 *Declare somewhere - Probably .h file*
 FTimerHandle TimerHandle;
 
-*Somewhere in your .cpp file*
+*Somewhere in your .cpp file - NOT IN THE CONSTRUCTOR , BREAKPOINT WILL TRIGGER IF YOU DON'T DO OTHERWISE*
 GetWorldTimerManager().SetTimer(TimerHandle, this , &Method, DelayBetweenLoops , LoopTheTimer, FirstDelayInSeconds);
 
 Obviously if LoopTheTimer is false , DelayBetweenLoops is going to be ignored.

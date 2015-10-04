@@ -31,3 +31,11 @@ Obviously if LoopTheTimer is false , DelayBetweenLoops is going to be ignored.
 Delay(FirstDelayInSeconds) -> &Method -> If LoopTheTimer == true -> Delay (DelayBetweenLoops) -> &Method -> ... *Till 
 timer is stopped
 
+You can have timers without a class and method reference:
+
+GetWorld()->GetTimerManager().SetTimer(TimerHandle, DelayBetweenLoops, LoopTheTimer, FirstDelayInSeconds);
+
+No use case for LoopTheTimer == true :) You just need to check if it is active with 
+
+GetWorld()->GetTimerManager().IsTimerActive(TimerHandle)
+

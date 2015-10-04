@@ -1,5 +1,10 @@
 I like: Making C++ classes, coding all the behavior there. Then creating blueprints that edit defaults only.
 
+TIP: Don't let these debug messages and traces get to production , use :
+#if UE_BUILD_DEBUG
+     GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, "debug msg");
+ #endif
+
 Check if actor mesh is of specific type
 for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::StaticClass()) {
  
@@ -39,3 +44,10 @@ No use case for LoopTheTimer == true :) You just need to check if it is active w
 
 GetWorld()->GetTimerManager().IsTimerActive(TimerHandle)
 
+How to initialize custom UActorComponents (and maybe UObjects in general) on runtime:
+UActorComponent* comp = ConstructObject<UActorComponent>(UActorComponent::StaticClass(), Owner);
+comp->RegisterComponentWithWorld(GetWorld()); //Only for UActorComponents
+
+How to hotswap custom UActorComponents in runtime:
+//If registered unregister first
+//follow instructions on top to initialize :)

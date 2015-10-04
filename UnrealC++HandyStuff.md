@@ -14,7 +14,7 @@ Check if actor mesh is of specific type:
 Check if actor mesh is of specific type
 for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::StaticClass()) {
  
-        if(((UStaticMeshComponent*) i)->StaticMesh->GetPathName().Equals("/Game/FirstPerson/Meshes/FirstPersonTemplateCube.FirstPersonTemplateCube"))... *Dont forget continue;
+        if(((UStaticMeshComponent*) i)->StaticMesh->GetPathName().Equals("/Game/FirstPerson/Meshes/FirstPersonTemplateCube.FirstPersonTemplateCube"))... // Dont forget continue;
  }
 ```
 ​

@@ -1,5 +1,7 @@
 I like: Making C++ classes, coding all the behavior there. Then creating blueprints that edit defaults only.
 
+**YOU CAN NOT CALL GAME CODE IN THE CONSTRUCTOR**
+
 TIP: Don't let these debug messages and traces get to production , use :
 #if UE_BUILD_DEBUG
      GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, "debug msg");

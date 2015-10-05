@@ -1,3 +1,8 @@
+#Zark's notes on UE4's C++ stuff that are confusing , lack documentation and proper explanation. Tricks included
+
+Want to package for 32-bit windows and your build crashes? Make sure you have downloaded and using the source version
+of the engine.
+
 I like: Making C++ classes, coding all the behavior there. Then creating blueprints that edit defaults only.
 ​
 TIP: Don't let these debug messages and traces get to production , use:

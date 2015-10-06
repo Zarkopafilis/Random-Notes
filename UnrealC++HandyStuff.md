@@ -70,3 +70,8 @@ How to hotswap custom UActorComponents in runtime:
 //If registered unregister first
 //follow instructions on top to initialize :)
 ```
+
+For multiplayer games: Gamemode is used only on the server. GameState's replicated values suit the needs of game time,
+captured points , drop locations etc.
+
+Just use the GameState to track the state of the game (duh!)

@@ -1,5 +1,7 @@
 #Zark's notes on UE4's C++ stuff that are confusing , lack documentation and proper explanation. Tricks included
 
+Tip: Don't change versions while developing/learning. Stuff change and stuff WILL break.
+
 Mobile (especially android devices) developers beware! Different devices combined with different OS versions lack 
 specific features (AO,SSR,Different OGL Versions). Keep that in mind when trying to use new technologies to achieve
 special graphic effects.

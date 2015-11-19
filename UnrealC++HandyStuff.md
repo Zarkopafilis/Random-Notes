@@ -31,7 +31,7 @@ for(UActorComponent  i : OtherActor->GetComponentsByClass(UStaticMeshComponent::
 ​
 Don't forget about UGameplayStatics!
 ​
-Vector math support operator overloading. :)
+Vector math support operator overloading.
 ​
 Apply velocity to an actor that `Actor->IsRootComponentMovable && Actor->GetRootComponent()->IsSimulatingPhysics`
 `Actor->GetRootPrimitiveComponent()->SetPhysicsLinearVelocity(velocity, false);`
@@ -80,4 +80,6 @@ How to hotswap custom UActorComponents in runtime:
 For multiplayer games: Gamemode is used only on the server. GameState's replicated values suit the needs of game time,
 captured points , drop locations etc.
 
-Just use the GameState to track the state of the game (duh!)
+Just use the GameState to track the state of the game (duh!).
+
+A delay of 0 (zero) will cause code to execute next frame.

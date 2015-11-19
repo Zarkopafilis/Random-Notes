@@ -14,10 +14,14 @@ I like: Making C++ classes, coding all the behavior there. Then creating bluepri
 TIP: Don't let these debug messages and traces get to production , use:
 ​
 ```cpp
+
+#include "Engine.h"
+...
 #if UE_BUILD_DEBUG
      GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, "debug msg");
 #endif
 ```
+
 ​
 Check if actor mesh is of specific type:
 ​

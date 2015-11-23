@@ -88,6 +88,6 @@ Just use the GameState to track the state of the game (duh!).
 
 A delay of 0 (zero) will cause code to execute next frame.
 
-Don't use default C++ types because their size may vary. Use Unreal's variations instead (e.g. uint32).
+Don't use default C++ types because their size may vary. Use Unreal's variations instead (e.g. uint32). You can use float though!
 
 Speaking of that, for simplicity reasons, uint8 (Byte) and int32 (Integer) are the only supported int types in blueprints.
